@@ -1,7 +1,6 @@
 package se.lexicon.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import se.lexicon.dao.AccountDao;
 import se.lexicon.model.Account;
 
@@ -9,24 +8,23 @@ import se.lexicon.model.Account;
  * Created by Mehrdad Javan
  * Date: Oct, 2020
  */
-@Component("walletService")
 public class WalletServiceImpl implements WalletService {
 
     private AccountDao accountDao;
 
     // Setter Injection
-    @Autowired
     public void setAccountDao(AccountDao accountDao) {
         this.accountDao = accountDao;
     }
 
-    /*
-        // Constructor Injection
-        @Autowired
-        public WalletServiceImpl(AccountDao accountDao) {
-            this.accountDao = accountDao;
-        }
-        */
+/*
+
+    // Constructor Injection
+    public WalletServiceImpl(AccountDao accountDao) {
+        this.accountDao = accountDao;
+    }
+*/
+
     @Override
     public Account createAccount(Account account) {
         if (account == null) {
