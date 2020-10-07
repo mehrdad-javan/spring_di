@@ -11,14 +11,17 @@ import se.lexicon.model.Account;
  */
 @Component("walletService")
 public class WalletServiceImpl implements WalletService {
-
+    // filed injection
+    @Autowired
     private AccountDao accountDao;
 
+/*
     // Setter Injection
     @Autowired
     public void setAccountDao(AccountDao accountDao) {
         this.accountDao = accountDao;
     }
+*/
 
     /*
         // Constructor Injection
