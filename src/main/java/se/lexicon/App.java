@@ -1,6 +1,8 @@
 package se.lexicon;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import se.lexicon.config.AppConfig;
 import se.lexicon.model.Account;
 import se.lexicon.model.AccountType;
 import se.lexicon.service.WalletService;
@@ -9,7 +11,7 @@ public class App {
 
 
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml");
+        AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext(AppConfig.class);
         WalletService service=context.getBean("walletService",WalletService.class);
         Account account = service.createAccount(new Account("Mehrdad", AccountType.TRANSACTION_ACC,0L));
         System.out.println("account.toString() = " + account.toString());
