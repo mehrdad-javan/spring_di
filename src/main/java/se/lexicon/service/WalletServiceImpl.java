@@ -14,12 +14,19 @@ public class WalletServiceImpl implements WalletService {
 
     private AccountDao accountDao;
 
-    // Constructor Injection
+    // Setter Injection
     @Autowired
-    public WalletServiceImpl(AccountDao accountDao) {
+    public void setAccountDao(AccountDao accountDao) {
         this.accountDao = accountDao;
     }
 
+    /*
+        // Constructor Injection
+        @Autowired
+        public WalletServiceImpl(AccountDao accountDao) {
+            this.accountDao = accountDao;
+        }
+        */
     @Override
     public Account createAccount(Account account) {
         if (account == null) {
